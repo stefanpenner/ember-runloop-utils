@@ -6,10 +6,13 @@ const inDOMPending = new WeakMap();
 
 const { run, observer } = Ember;
 
-// observer that only fires if:
-// * the object is in DOM
-// * the object is not destroyed or destroying
-// * once per run-loop flush
+/*
+ observer that only fires if:
+
+ * the object is in DOM
+ * the object is not destroyed or destroying
+ * once per run-loop flush
+*/
 export default function inDOMObserver(...args) {
   let fn = args.pop();
 

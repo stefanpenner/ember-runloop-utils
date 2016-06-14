@@ -29,10 +29,12 @@ export default function inDOMObserver(...args) {
       // we found a map, and the current function is already schedule so we
       // have no work todo, skipping...
       return;
-    } else {
+    } else if (!pendingMap) {
       // no map found, create a new one
       pendingMap = new Ember.Map();
       inDOMPending.set(this, pendingMap);
+    } else {
+      // map found, but not for the giving function
     }
 
     // set the current function as pending

@@ -242,6 +242,44 @@ test('same instance 2 inDOMObservers', function(assert) {
   assert.equal(invokedAge, 1, 'expected ONE invocations');
 });
 
+test('same instance 1 inDOMObserver 2 keys', function(assert) {
+  let invoked = 0;
+
+  let Parent = Ember.Object.extend({
+    nameDidChange: inDOMObserver('name', 'age', function() {
+      invoked++;
+    }),
+  });
+
+  var p = Parent.create({
+    _state: 'inDOM',
+  });
+
+  assert.equal(invoked, 0, 'expected no invocations');
+
+  Ember.run(() => {
+    p.set('name', 'Desmond');
+    assert.equal(invoked, 0, 'expected no invocations');
+  });
+
+  assert.equal(invoked, 1, 'expected no invocations');
+
+  Ember.run(() => {
+    p.set('age', '30');
+    assert.equal(invoked, 1, 'expected ONE invocations');
+  });
+
+  assert.equal(invoked, 2, 'expected TWO invocations');
+
+  Ember.run(() => {
+    p.set('age', '99');
+    p.set('name', 'Santa');
+    assert.equal(invoked, 2, 'expected no new invocations');
+  });
+
+  assert.equal(invoked, 3, 'expected TREE (one more) invocations');
+});
+
 test('same inDOMObservers 2 instances', function(assert) {
   let invokedName = 0;
 

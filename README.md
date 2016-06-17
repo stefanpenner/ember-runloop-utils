@@ -1,4 +1,4 @@
-# Ember-runloop-utils
+# Ember-runloop-utils [![Build Status](https://travis-ci.org/stefanpenner/ember-runloop-utils.svg?branch=master)](https://travis-ci.org/stefanpenner/ember-runloop-utils)
 
 Observers are hard to use, when possible we should avoid them see: [this video](https://www.youtube.com/watch?v=vvZEddrClAQ) if you are curious how.
 

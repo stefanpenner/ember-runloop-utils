@@ -2,21 +2,21 @@
 
 Observers are hard to use, when possible we should avoid them see: [this video](https://www.youtube.com/watch?v=vvZEddrClAQ) if you are curious how.
 
-Now sometimes, observers are required:
+#### Now sometimes, observers are required:
 
 * pushing change information away from ember (to d3, or jQuery or similar)
 * thats more or less it
 
 Unfortunately, even in this scenarios it can be quite tricky to write them correctly. 
 
-Common Requirements (tricky to implement):
+#### Common Requirements (tricky to implement):
 
 * schedule on the run-loop
 * should fire once per run-loop queue flush
 * should not fire if the object is `isDestroyed` or `isDestroying`
 * sometimes should not fire if the object is no longer `inDOM`
  
-Solution:
+#### Solution:
 
 This library provides several helpers which aim to address the above issue. The goal is to have a shared, well tested implemention of `onceObserver` and `inDomObserver` macros.
 

@@ -2,7 +2,7 @@
 
 Observers are hard to use, when possible we should avoid them see: [this video](https://www.youtube.com/watch?v=vvZEddrClAQ) if you are curious how.
 
-#### Now sometimes, observers are required:
+#### Now sometimes, observers are required (but extremely rarely):
 
 * pushing change information away from ember (to d3, or jQuery or similar)
 * thats more or less it

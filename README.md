@@ -35,7 +35,7 @@ export default Component.extend({
 
 ```js
 // For crappy reasons non inDOM use-cases
-import inDOMObserver from 'ember-runloop-utils/in-dom-observer'
+import onceObserver from 'ember-runloop-utils/in-dom-observer'
 import Component from 'ember/component'
 
 export default Service.extend({
